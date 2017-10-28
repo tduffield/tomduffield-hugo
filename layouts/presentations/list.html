@@ -1,0 +1,7 @@
+{{ define "main" }}
+  <div class="presentations">
+  {{ range sort .Site.Data.presentations "date" "desc" }}
+    {{ partial "presentation.html" . }}
+  {{ end }}
+  </div>
+{{ end }}

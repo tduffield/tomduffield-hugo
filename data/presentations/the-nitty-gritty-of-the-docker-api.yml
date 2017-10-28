@@ -1,0 +1,7 @@
+---
+identifier: the-nitty-gritty-of-the-docker-api
+title: "The Nitty-Gritty of the Docker API"
+location: DevOps MSP
+date: 2015-01-26
+video: https://www.youtube.com/watch?v=BMZvM9tqT4M
+description: "This was a talk aimed at those who may have been using Docker for awhile now and want to start pushing the boundaries a bit, perhaps by leveraging the sweet API they have. In this short talk I cover my approach using the API and some gotchas of which users coming from the CLI might not be aware."

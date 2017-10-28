@@ -1,0 +1,7 @@
+---
+identifier: test-kitchen-demo
+title: "Test Kitchen Demo"
+date: 2014-01-06
+location: "Twin City Infracoders"
+video: ""
+description: "Test Kitchen is a test harness tool to execute your configured code on one or more platforms in isolation. A driver plugin architecture is used which lets you run your code on various cloud providers and virtualization technologies."

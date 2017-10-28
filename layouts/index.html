@@ -1,0 +1,9 @@
+{{ define "main" }}
+  {{ range sort .Site.Data.presentations "date" "desc" | first 1 }}
+    {{ partial "presentation.html" . }}
+  {{ end }}
+  
+  {{ partial "post-list.html"  . }}
+  {{ partial "pagination.html" . }}
+  {{ partial "about.html" . }}
+{{ end }}

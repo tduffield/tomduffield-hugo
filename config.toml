@@ -1,0 +1,66 @@
+# Site settings
+baseurl = "https://tomduffield.com"
+themesDir = "themes"
+languageCode = "en-us"
+title = "Tom Duffield"
+theme = "hugo-cactus-theme"
+# Enter your tracking code to enable Google Analytics
+googleAnalytics = ""
+# Disable comments by leaving disqusShortname empty
+disqusShortname = ""
+sectionPagesMenu = "main"
+publishDir = "docs"
+
+[[menu.main]]
+	identifier = "posts"
+	name = "Blog"
+	weight = -110
+	url = "/posts/"
+
+[[menu.main]]
+	identifier = "presentations"
+    name = "Presentations"
+	weight = -100
+    url = "/presentations/"
+
+[params]
+	name = "Tom Duffield"
+	description = "Thoughts. Insights. Code."
+	bio = "Thoughts. Insights. Code."
+	# Enter optionally your twitter account
+	twitter = "tomduffield"
+	enableRSS = false
+
+	# Integrate Javascript files or stylesheets by adding the url to the external assets or by
+	# linking local files with their path relative to the static folder, e.g. "css/styles.css"
+	customCSS = [ "css/mystyle.css" ]
+	customJS  = []
+
+	# The variables below are optionally too and can be used to
+	# translate or customize each string of the theme.
+
+	# Navigation links
+	home = ""
+	subscribe = ""
+	# Pagination links
+	olderPosts = ""
+	newerPosts = ""
+	readMore = ""
+	copyright = ""
+	# Sharing options and author information in posts
+	aboutAuthor = "Tom Duffield is a software engineer for Chef Software based out of Austin, TX. "
+	tweet = ""
+	share = ""
+	# 404 page
+	title404 = ""
+	subtitle404 = ""
+
+	# Choose a font for the social icons in the footer. Either "mono-social" or "font-awesome"
+	iconFont = "font-awesome"
+    # The social icons can be styled differently if you use mono as font - circle, rounded, or empty
+    socialIconStyle = ""
+
+# Add additional social link entries underneath
+[social]
+    twitter-square  = "https://www.twitter.com/tomduffield"
+    github-square   = "https://www.github.com/tduffield"

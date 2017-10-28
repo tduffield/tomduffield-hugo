@@ -1,0 +1,14 @@
+<div class="presentation">
+  <div class="presentation-screenshot">
+    <img src="{{ printf "images/presentations/%s.png" .identifier | absURL }}"/>
+  </div>
+  <div class="presentation-details">
+    <h1 class="presentation-title"><a href="{{ printf "files/presentations/%s.pdf" .identifier | absURL }}" target="_blank">{{ .title }}</a></h1>
+    <p class="presentation-description">{{ .description | markdownify }}</p>
+    <ul class="presentation-metadata">
+      {{ with .date }}<li class="presentation-date"><i class="fa fa-calendar-o"></i> {{ dateFormat "January, 2 2006" . }}</li>{{ end }}
+      {{ with .location }}<li class="presentation-location"><i class="fa fa-map-marker"></i> {{ . }}</li>{{ end }}
+      {{ with .video }}<li class="presentation-video"><i class="fa fa-video-camera"></i> <a href="{{ . }}" target="_blank">Recording</a></li>{{ end }}
+    </ul>
+  </div>
+</div>

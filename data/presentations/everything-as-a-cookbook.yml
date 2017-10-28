@@ -1,0 +1,7 @@
+---
+identifier: everything-as-a-cookbook
+title: "Everything as a Cookbook"
+date: 2014-04-16
+location: "ChefConf"
+video: "https://www.youtube.com/watch?v=bzmxKwWrLCM"
+description: "Cookbook reusability across the community has been hindered by a lack of standardization on how different types of cookbooks should be developed and consumed. The good news is that by shifting our mindset slightly about how we develop and consume cookbooks, we can leverage existing service models to define criteria that will set expectations between developers and consumers for how cookbooks should be designed and consumed. "
