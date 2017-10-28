@@ -3,45 +3,45 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://tomduffield.com/presentations/</loc>
+    <loc>http://tomduffield.com/presentations/</loc>
     <lastmod>2017-10-25T19:37:16-05:00</lastmod>
   </url>
   
   <url>
-    <loc>https://tomduffield.com/posts/docker-compose-based-lita-development-environment/</loc>
+    <loc>http://tomduffield.com/posts/docker-compose-based-lita-development-environment/</loc>
     <lastmod>2017-03-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://tomduffield.com/posts/make-expectations-against-helpers-in-lita-handler-blocks/</loc>
+    <loc>http://tomduffield.com/posts/make-expectations-against-helpers-in-lita-handler-blocks/</loc>
     <lastmod>2017-02-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://tomduffield.com/categories/</loc>
+    <loc>http://tomduffield.com/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://tomduffield.com/posts/</loc>
+    <loc>http://tomduffield.com/posts/</loc>
     <lastmod>2017-03-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://tomduffield.com/tags/programming/</loc>
+    <loc>http://tomduffield.com/tags/programming/</loc>
     <lastmod>2017-03-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://tomduffield.com/tags/</loc>
+    <loc>http://tomduffield.com/tags/</loc>
     <lastmod>2017-03-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://tomduffield.com/</loc>
+    <loc>http://tomduffield.com/</loc>
     <lastmod>2017-03-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

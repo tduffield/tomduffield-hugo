@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programming on Tom Duffield</title>
-    <link>https://tomduffield.com/tags/programming/</link>
+    <link>http://tomduffield.com/tags/programming/</link>
     <description>Recent content in Programming on Tom Duffield</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 13 Mar 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://tomduffield.com/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://tomduffield.com/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Docker Compose Based Lita Development Environment</title>
-      <link>https://tomduffield.com/posts/docker-compose-based-lita-development-environment/</link>
+      <link>http://tomduffield.com/posts/docker-compose-based-lita-development-environment/</link>
       <pubDate>Mon, 13 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://tomduffield.com/posts/docker-compose-based-lita-development-environment/</guid>
+      <guid>http://tomduffield.com/posts/docker-compose-based-lita-development-environment/</guid>
       <description>In the continuation of the Lita development that I&amp;rsquo;ve been doing recently, I&amp;rsquo;ve found myself needing a more sophisticated development environment for Lita. Running bundle exec lita locally just was not cutting it anymore. My Lita plugin was starting to pepper my hard-drive with various files and the number of services I was needing to manually install and manage on my local machine was increasing. Unfortunately, the Lita plugin that inspired this work is not currently open source, but I&amp;rsquo;ve managed to replicate the setup with a Lita plugin that I have open-sourced: lita-announce.</description>
     </item>
     
     <item>
       <title>Make expectations against helpers in Lita Handler Blocks</title>
-      <link>https://tomduffield.com/posts/make-expectations-against-helpers-in-lita-handler-blocks/</link>
+      <link>http://tomduffield.com/posts/make-expectations-against-helpers-in-lita-handler-blocks/</link>
       <pubDate>Tue, 21 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://tomduffield.com/posts/make-expectations-against-helpers-in-lita-handler-blocks/</guid>
+      <guid>http://tomduffield.com/posts/make-expectations-against-helpers-in-lita-handler-blocks/</guid>
       <description>In the past several weeks I&amp;rsquo;ve been doing some personal coding on several Lita plugins for the teams that I work on at Chef. Lita plugins are relatively new to me, but they&amp;rsquo;ve been a neat way to get some personal coding in whilst also bringing some value to my team. Some of these plugins are small, but others are large and rather complex, requiring helper functions, classes, or sometimes entire gems.</description>
     </item>
     
