@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Tom Duffield">
+<meta name="description" content="Thoughts. Insights. Code.">
+<meta name="generator" content="Hugo 0.29" />
+<title>Docker Compose Based Lita Development Environment</title>
+<link rel="shortcut icon" href="https://tomduffield.com/images/favicon.ico">
+<link rel="stylesheet" href="https://tomduffield.com/css/style.css">
+<link rel="stylesheet" href="https://tomduffield.com/css/highlight.css">
+
+<link rel="stylesheet" href="https://tomduffield.com/css/mystyle.css">
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+
+
+
+
+<meta property="og:title" content="Docker Compose Based Lita Development Environment" />
+<meta property="og:description" content="In the continuation of the Lita development that I&rsquo;ve been doing recently, I&rsquo;ve found myself needing a more sophisticated development environment for Lita. Running bundle exec lita locally just was not cutting it anymore. My Lita plugin was starting to pepper my hard-drive with various files and the number of services I was needing to manually install and manage on my local machine was increasing. Unfortunately, the Lita plugin that inspired this work is not currently open source, but I&rsquo;ve managed to replicate the setup with a Lita plugin that I have open-sourced: lita-announce." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tomduffield.com/posts/docker-compose-based-lita-development-environment/" />
+
+
+
+<meta property="article:published_time" content="2017-03-13T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2017-03-13T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Docker Compose Based Lita Development Environment">
+<meta itemprop="description" content="In the continuation of the Lita development that I&rsquo;ve been doing recently, I&rsquo;ve found myself needing a more sophisticated development environment for Lita. Running bundle exec lita locally just was not cutting it anymore. My Lita plugin was starting to pepper my hard-drive with various files and the number of services I was needing to manually install and manage on my local machine was increasing. Unfortunately, the Lita plugin that inspired this work is not currently open source, but I&rsquo;ve managed to replicate the setup with a Lita plugin that I have open-sourced: lita-announce.">
+
+
+<meta itemprop="dateModified" content="2017-03-13T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="399">
+
+
+
+<meta itemprop="keywords" content="programming," />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Docker Compose Based Lita Development Environment"/>
+<meta name="twitter:description" content="In the continuation of the Lita development that I&rsquo;ve been doing recently, I&rsquo;ve found myself needing a more sophisticated development environment for Lita. Running bundle exec lita locally just was not cutting it anymore. My Lita plugin was starting to pepper my hard-drive with various files and the number of services I was needing to manually install and manage on my local machine was increasing. Unfortunately, the Lita plugin that inspired this work is not currently open source, but I&rsquo;ve managed to replicate the setup with a Lita plugin that I have open-sourced: lita-announce."/>
+
+
+    </head>
+<body>
+    <section id="wrapper">
+        <div class="profile">
+    <section id="wrapper">
+        <header id="header">
+            <h1>Tom Duffield</h1>
+            <h2>Thoughts. Insights. Code.</h2>
+        </header>
+    </section>
+</div>
+        <nav class="main-nav">
+	<ul>
+		<li>
+			<a href='https://tomduffield.com'>Home</a>
+		</li>
+
+
+		<li class="active">
+			<a href='/posts/'>Blog</a>
+		</li>
+
+		<li>
+			<a href='/presentations/'>Presentations</a>
+		</li>
+
+	</ul>
+</nav>
+
+        
+<article class="post">
+    <header>
+        <h1>Docker Compose Based Lita Development Environment</h1>
+        <h2 class="subtitle"></h2>
+        <h2 class="headline">
+        March 13, 2017
+        <br>
+        
+        
+            
+                <a href="https://tomduffield.com/tags/programming">programming</a>
+            
+        
+        
+        </h2>
+    </header>
+    <section id="post-body">
+        <p>In the continuation of the Lita development that I&rsquo;ve been doing recently, I&rsquo;ve found myself needing a more sophisticated development environment for Lita. Running <code>bundle exec lita</code> locally just was not cutting it anymore. My Lita plugin was starting to pepper my hard-drive with various files and the number of services I was needing to manually install and manage on my local machine was increasing. Unfortunately, the Lita plugin that inspired this work is not currently open source, but I&rsquo;ve managed to replicate the setup with a Lita plugin that I have open-sourced: <a href="https://github.com/tduffield/lita-announce">lita-announce</a>.</p>
+
+<p>So the foundation of this setup is the <a href="https://github.com/tduffield/lita-announce/blob/master/docker-compose.yml">docker-compose.yml</a>, which contains two services: Lita and Redis.</p>
+
+<pre><code>version: '3'
+services:
+  lita:
+    build: .
+    links:
+      - redis:redis
+    volumes:
+      - ./:/app
+      - ./.docker_bundle:/app/.bundle
+    environment:
+      - SLACK_TOKEN
+  redis:
+    image: redis
+</code></pre>
+
+<p>Now, Lita already has a <a href="https://hub.docker.com/r/litaio/lita/">docker image</a> that you can use to run Lita, but their image is intended for &ldquo;production&rdquo; cases. I needed something focused on development, which is where my <a href="https://github.com/tduffield/lita-announce/blob/master/Dockerfile">customized Dockerfile</a> came in.</p>
+
+<pre><code>FROM ruby:2.3
+MAINTAINER Tom Duffield &lt;tom@chef.io&gt;
+
+RUN apt-get update &amp;&amp; \
+    apt-get install -y git &amp;&amp; \
+    apt-get clean &amp;&amp; \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+RUN gem install bundler &amp;&amp; mkdir /app
+COPY start /start
+WORKDIR /app
+CMD [&quot;/start&quot;]
+</code></pre>
+
+<p>This Dockerfile is very similar to the one for <code>litaio/lita</code>, but with a few differences. First, it is based off the latest Ruby 2.3 version rather than 2.3.0 (which has some known bugs). Second, it has a <a href="https://github.com/tduffield/lita-announce/blob/master/start">customized start script</a> that executes the lita process via <a href="https://github.com/guard/guard-process">guard-process</a>.</p>
+
+<pre><code>bundle install --path /var/bundle --jobs $(nproc) --clean
+exec bundle exec guard
+</code></pre>
+
+<p>The <a href="https://github.com/tduffield/lita-announce/blob/master/Guardfile">Guardfile</a> that I used watches the lita_config.rb file, as well as the entire <code>lib/</code> directory of my plugin, for file changes and restarts the Lita process if any changes are necessary.</p>
+
+<pre><code>interactor :off
+guard &quot;process&quot;, name: &quot;Lita&quot;, command: &quot;bundle exec lita&quot; do
+  watch(&quot;lita_config.rb&quot;)
+  watch(%r{^lib/*})
+end
+</code></pre>
+
+<p>Because I&rsquo;m <a href="https://github.com/tduffield/lita-announce/blob/master/docker-compose.yml#L9">syncing my plugin directory directly into the /app folder on my container</a>, any changes that I make locally are immediately available in the container. The end result is that the Lita service in my container will restart anytime I make a change to a file locally. This allows me to iterate very quickly when attempting to functionally test my plugin without having to manually restart my process.</p>
+
+<p>If you want to see all of the changes that were necessary, you can view them all in <a href="https://github.com/tduffield/lita-announce/commit/52c5119f17be33858a75b2243052b6c52d480854">this commit</a>.</p>
+
+    </section>
+</article>
+
+<footer id="post-meta" class="clearfix">
+    <a href="https://twitter.com/tomduffield">
+    <img class="avatar" src="https://tomduffield.com/images/avatar.jpg">
+    <div>
+        <span class="dark">Tom Duffield</span>
+        <span>Tom Duffield is a software engineer for Chef Software based out of Austin, TX. </span>
+    </div>
+    </a>
+    
+    <section id="sharing">
+        <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2ftomduffield.com%2fposts%2fdocker-compose-based-lita-development-environment%2f - Docker%20Compose%20Based%20Lita%20Development%20Environment by @tomduffield"><span class="icon-twitter"> tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+
+    </section>
+    
+</footer>
+
+
+
+<ul id="post-list" class="archive readmore">
+    <h3>Read more</h3>
+
+    
+    
+    
+        <li>
+            <a href="/posts/make-expectations-against-helpers-in-lita-handler-blocks/">Make expectations against helpers in Lita Handler Blocks<aside class="dates">Feb 21 2017</aside></a>
+        </li>
+    
+</ul>
+
+
+
+        <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="https://www.github.com/tduffield">
+        <i class="fa fa-github-square"></i>
+    </a>
+    
+    <a class="symbol" href="https://www.twitter.com/tomduffield">
+        <i class="fa fa-twitter-square"></i>
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        © Copyright 2017 Tom Duffield
+    
+    </p>
+</footer>
+
+    </section>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://tomduffield.com/js/main.js"></script>
+<script src="https://tomduffield.com/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+</body>
+</html>

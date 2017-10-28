@@ -1,0 +1,118 @@
+/* Profile */
+
+#wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 40px 100px 40px;
+}
+
+.profile #wrapper {
+	padding: 50px 40px 0px;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.profile h1 {
+	font-weight: 600;
+	letter-spacing: 10px;
+	font-size: 65px;
+	color: #222;
+	text-transform: uppercase;
+}
+
+.profile h2 {
+	font-size: 13px;
+	letter-spacing: 5px;
+	font-weight: 600;
+	color: #aaa;
+	margin-top: 30px;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-style: normal;
+	text-transform: uppercase;
+}
+
+/* Navigation */
+
+nav.main-nav {
+	padding-top: 0px;
+	padding-bottom: 20px;
+	letter-spacing: 1.5px;
+	font-size: 13px;
+
+	/*max-width: 600px;*/
+	/*width:100%;*/
+	background: #fff;
+	background: rgba(255,255,255,.90);
+	margin: 0 auto;
+	text-align: center;
+	/*position: fixed;*/
+	z-index: 100;
+}
+
+nav.main-nav li {
+	display: inline;
+	list-style: none;
+}
+
+nav.main-nav a {
+	top: 8px;
+	right: 6px;
+	padding: 8px 12px;
+	color: #121212;
+	font-size: 13px;
+	/*font-weight: bold;*/
+	line-height: 1.35;
+	border-radius: 3px;
+	text-transform: uppercase;
+}
+
+nav.main-nav a:hover,
+nav.main-nav li.active a {
+	color: #5694f1;
+}
+
+/*  Presentation */
+
+div.presentations {
+	width: 100%;
+}
+
+div.presentation {
+	display: flex;
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+div.presentation-screenshot {
+	display: flex-cell;
+	width: 30%;
+}
+
+div.presentation-details {
+	display: flex-cell;
+	width: 70%;
+	margin-left: 15px;
+}
+
+div.presentation-details h1.presentation-title {
+	font-size: 1.2em;
+	margin-bottom: 10px;
+}
+
+ul.presentation-metadata {
+	list-style: none;
+	padding-bottom: 5px;
+	font-size: 0.8em;
+}
+
+ul.presentation-metadata li {
+	display: inline;
+	padding-right: 10px;
+	font-size: 0.9em;
+	text-transform: uppercase;
+	display: inline;
+}
+
+p.presentation-description {
+	font-size: 0.9em;
+}
