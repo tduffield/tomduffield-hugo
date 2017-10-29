@@ -9,7 +9,6 @@ googleAnalytics = ""
 # Disable comments by leaving disqusShortname empty
 disqusShortname = ""
 sectionPagesMenu = "main"
-publishDir = "docs"
 
 [[menu.main]]
 	identifier = "posts"
