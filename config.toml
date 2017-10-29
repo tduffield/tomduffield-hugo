@@ -5,9 +5,9 @@ languageCode = "en-us"
 title = "Tom Duffield"
 theme = "hugo-cactus-theme"
 # Enter your tracking code to enable Google Analytics
-googleAnalytics = ""
+googleAnalytics = "UA-41031154-1"
 # Disable comments by leaving disqusShortname empty
-disqusShortname = ""
+disqusShortname = "tduffield"
 sectionPagesMenu = "main"
 
 [[menu.main]]
