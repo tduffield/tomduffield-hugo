@@ -78,9 +78,15 @@ div.presentations {
 }
 
 div.presentation {
+	border-top: 1px solid #eee;
+	padding: 30px 0px;
 	display: flex;
 	width: 100%;
-	margin-bottom: 15px;
+	/* margin-bottom: 15px; */
+}
+
+div.presentation:last-child {
+	border-bottom: 1px solid #eee;
 }
 
 div.presentation-screenshot {
@@ -102,6 +108,7 @@ div.presentation-details h1.presentation-title {
 ul.presentation-metadata {
 	list-style: none;
 	padding-bottom: 5px;
+	margin-bottom: 0px;
 	font-size: 0.8em;
 }
 
