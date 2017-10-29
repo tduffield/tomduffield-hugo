@@ -1,5 +1,5 @@
 # Site settings
-baseurl = "http://tomduffield.com"
+baseurl = "http://www.tomduffield.com"
 themesDir = "themes"
 languageCode = "en-us"
 title = "Tom Duffield"
