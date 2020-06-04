@@ -61,5 +61,6 @@ sectionPagesMenu = "main"
 
 # Add additional social link entries underneath
 [social]
-    twitter-square  = "https://www.twitter.com/tomduffield"
-    github-square   = "https://www.github.com/tduffield"
+    twitter-square = "https://www.twitter.com/tomduffield"
+    github-square  = "https://www.github.com/tduffield"
+		lock					 = "/public-key.gpg"
