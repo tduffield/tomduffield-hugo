@@ -5,7 +5,7 @@ languageCode = "en-us"
 title = "Tom Duffield"
 theme = "hugo-cactus-theme"
 # Enter your tracking code to enable Google Analytics
-googleAnalytics = "UA-41031154-1"
+googleAnalytics = ""
 # Disable comments by leaving disqusShortname empty
 disqusShortname = "tduffield"
 sectionPagesMenu = "main"
@@ -47,7 +47,7 @@ sectionPagesMenu = "main"
 	readMore = ""
 	copyright = ""
 	# Sharing options and author information in posts
-	aboutAuthor = "Tom Duffield is a software engineer for Chef Software based out of Austin, TX. "
+	aboutAuthor = "Tom Duffield is the Security Architect for CircleCI based out of Minneapolis, MN. "
 	tweet = ""
 	share = ""
 	# 404 page
@@ -56,11 +56,11 @@ sectionPagesMenu = "main"
 
 	# Choose a font for the social icons in the footer. Either "mono-social" or "font-awesome"
 	iconFont = "font-awesome"
-    # The social icons can be styled differently if you use mono as font - circle, rounded, or empty
-    socialIconStyle = ""
+  # The social icons can be styled differently if you use mono as font - circle, rounded, or empty
+  socialIconStyle = ""
 
 # Add additional social link entries underneath
 [social]
-    twitter-square = "https://www.twitter.com/tomduffield"
-    github-square  = "https://www.github.com/tduffield"
-		lock					 = "/public-key.gpg"
+  twitter-square = "https://www.twitter.com/tomduffield"
+  github-square  = "https://www.github.com/tduffield"
+	lock		       = "/public-key.gpg"
