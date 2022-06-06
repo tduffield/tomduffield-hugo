@@ -47,7 +47,7 @@ sectionPagesMenu = "main"
 	readMore = ""
 	copyright = ""
 	# Sharing options and author information in posts
-	aboutAuthor = "Tom Duffield is the Security Architect for CircleCI based out of Minneapolis, MN. "
+	aboutAuthor = "Tom Duffield is a software engineering leader based out of Minneapolis, MN. "
 	tweet = ""
 	share = ""
 	# 404 page
@@ -63,4 +63,5 @@ sectionPagesMenu = "main"
 [social]
   twitter-square = "https://www.twitter.com/tomduffield"
   github-square  = "https://www.github.com/tduffield"
+	linkedin 			 = "https://www.linkedin.com/in/thomasduffield/"
 	lock		       = "/public-key.gpg"
