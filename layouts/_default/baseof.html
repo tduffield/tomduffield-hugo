@@ -1,16 +1,13 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode | default "en" }}">
-	<head>
+<html lang="{{ .Site.Language.Lang | default "en" }}">
+  <head>
     {{ partial "head.html" . }}
-    </head>
-<body>
-    <section id="wrapper">
-        {{ partial "profile.html" . }}
-        {{ partial "nav.html" . }}
-        {{ block "main" . -}}{{- end }}
-
-        {{ partial "footer.html" . }}
-    </section>
-    {{ partial "js.html" . }}
-</body>
+  </head>
+  <body class="{{ if .IsHome }}is-home{{ else }}is-inner{{ end }}">
+    {{ partial "nav.html" . }}
+    <main id="content">
+      {{ block "main" . }}{{ end }}
+    </main>
+    {{ partial "site-footer.html" . }}
+  </body>
 </html>

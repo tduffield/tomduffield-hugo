@@ -1,13 +1,15 @@
-<nav class="main-nav">
-	<ul>
-		<li{{if .IsHome}} class="active"{{end}}>
-			<a href='{{ .Site.BaseURL }}'>{{ .Site.Params.home | default "Home" }}</a>
-		</li>
-{{ $currentPage := . }}
-{{ range .Site.Menus.main }}
-		<li{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .)}} class="active"{{end}}>
-			<a href='{{ .URL }}'>{{ .Name }}</a>
-		</li>
-{{ end }}
-	</ul>
-</nav>
+<header class="site-nav">
+  <div class="wrap nav-inner">
+    <a class="nav-brand" href="{{ "/" | absURL }}" aria-label="{{ .Site.Params.name }} — home">{{ .Site.Params.monogram | default "TD" }}</a>
+    <nav aria-label="Primary">
+      {{- $currentPage := . -}}
+      <ul>
+        {{- range .Site.Menus.main }}
+        <li{{ if $currentPage.HasMenuCurrent "main" . }} class="active"{{ end }}>
+          <a href="{{ .URL | absLangURL }}">{{ .Name }}</a>
+        </li>
+        {{- end }}
+      </ul>
+    </nav>
+  </div>
+</header>

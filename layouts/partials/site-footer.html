@@ -1,0 +1,15 @@
+{{- $labels := dict "github" "GitHub" "linkedin" "LinkedIn" "email" "Email" "key" "PGP key" -}}
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    {{ with .Site.Params.craftNote }}<p class="footer-craft">{{ . }}</p>{{ end }}
+    <p class="footer-name">{{ .Site.Params.name }}{{ with .Site.Params.location }} · {{ . }}{{ end }}</p>
+    <ul class="footer-social">
+      {{- range $k, $url := .Site.Params.social }}
+      {{- with $url }}
+      <li><a href="{{ . }}"{{ if not (hasPrefix . "/") }} rel="me noopener"{{ end }}>{{ index $labels $k | default $k }}</a></li>
+      {{- end }}
+      {{- end }}
+    </ul>
+    <p class="footer-meta">Built with Hugo. © {{ now.Year }} {{ .Site.Params.name }}.</p>
+  </div>
+</footer>

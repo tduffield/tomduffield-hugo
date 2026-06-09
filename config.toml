@@ -1,67 +1,58 @@
 # Site settings
 baseurl = "https://www.tomduffield.com"
-themesDir = "themes"
-languageCode = "en-us"
+locale = "en-us"
 title = "Tom Duffield"
-theme = "hugo-cactus-theme"
-# Enter your tracking code to enable Google Analytics
+# Self-contained layouts live in /layouts; no external theme.
 googleAnalytics = ""
-# Disable comments by leaving disqusShortname empty
-disqusShortname = "tduffield"
-sectionPagesMenu = "main"
+enableRobotsTXT = true
 
-[[menu.main]]
-	identifier = "posts"
-	name = "Blog"
-	weight = -110
-	url = "/posts/"
-
-[[menu.main]]
-	identifier = "presentations"
-    name = "Presentations"
-	weight = -100
+[menu]
+  [[menu.main]]
+    identifier = "built"
+    name = "Built"
+    weight = -120
+    url = "/#built"
+  [[menu.main]]
+    identifier = "writing"
+    name = "Writing"
+    weight = -110
+    url = "/posts/"
+  [[menu.main]]
+    identifier = "talks"
+    name = "Talks"
+    weight = -100
     url = "/presentations/"
 
 [params]
-	name = "Tom Duffield"
-	description = "Thoughts. Insights. Code."
-	bio = "Thoughts. Insights. Code."
-	# Enter optionally your twitter account
-	twitter = "tomduffield"
-	enableRSS = false
+  name = "Tom Duffield"
+  # Monogram shown as the nav logo mark (keeps the name out of the nav twice).
+  monogram = "TD"
+  # Mono eyebrow line above the name in the hero.
+  role = "Software engineer & builder"
+  # Availability pill in the hero. Empty string hides it (clear it once you land).
+  status = "Available for new work"
+  # One-line identity, shown under the name in the hero.
+  tagline = 'I build software for <span class="tagline-em">people</span>.'
+  # Short hero blurb, in Tom's voice. Plain, concrete, no buzzwords.
+  # Availability is carried by the status pill, so the intro stays about the work.
+  intro = "I have a habit of finding whatever's slowing everyone down and building a way out of it - then handing it over to whoever else is stuck. Most of what I've made started as a selfish fix for my own bad day, before it turned into everyone's."
+  location = "Minneapolis, MN"
+  # A small, honest sign-off in the footer. Encapsulates the off-screen builder.
+  craftNote = "Off the keyboard, I build things out of wood."
+  # Public contact. Drop a curated PDF in static/files/ and point resumeURL at it
+  # to surface a Resume link in the hero; leave empty to hide it.
+  email = "tom.duffield@gmail.com"
+  resumeURL = ""
+  description = "Tom Duffield is a software engineer and builder in Minneapolis who ships products end-to-end - from AI consumer-health to org-wide CI/CD."
 
-	# Integrate Javascript files or stylesheets by adding the url to the external assets or by
-	# linking local files with their path relative to the static folder, e.g. "css/styles.css"
-	customCSS = [ "css/mystyle.css" ]
-	customJS  = []
+# Footer + hero social links. Order here is the order rendered.
+[params.social]
+  github = "https://github.com/tduffield"
+  linkedin = "https://www.linkedin.com/in/thomasduffield/"
+  email = "mailto:tom.duffield@gmail.com"
 
-	# The variables below are optionally too and can be used to
-	# translate or customize each string of the theme.
+[markup.goldmark.renderer]
+  unsafe = true
 
-	# Navigation links
-	home = ""
-	subscribe = ""
-	# Pagination links
-	olderPosts = ""
-	newerPosts = ""
-	readMore = ""
-	copyright = ""
-	# Sharing options and author information in posts
-	aboutAuthor = "Tom Duffield is a software engineering leader based out of Minneapolis, MN. "
-	tweet = ""
-	share = ""
-	# 404 page
-	title404 = ""
-	subtitle404 = ""
-
-	# Choose a font for the social icons in the footer. Either "mono-social" or "font-awesome"
-	iconFont = "font-awesome"
-  # The social icons can be styled differently if you use mono as font - circle, rounded, or empty
-  socialIconStyle = ""
-
-# Add additional social link entries underneath
-[social]
-  twitter-square = "https://www.twitter.com/tomduffield"
-  github-square  = "https://www.github.com/tduffield"
-	linkedin 			 = "https://www.linkedin.com/in/thomasduffield/"
-	lock		       = "/public-key.gpg"
+[taxonomies]
+  tag = "tags"

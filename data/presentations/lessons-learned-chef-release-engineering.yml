@@ -1,0 +1,8 @@
+---
+identifier: lessons-learned-chef-release-engineering
+title: "Lessons Learned from Chef Release Engineering (What is Expeditor?)"
+location: ChefConf 2019
+date: 2019-05-21
+video: https://www.youtube.com/watch?v=RMhGifmB0BU
+youtube: RMhGifmB0BU
+description: "The story of Expeditor - the release-process-as-code engine I built at Chef - and what our release engineering team learned automating the build, test, and release of the entire product portfolio."

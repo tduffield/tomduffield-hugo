@@ -1,4 +1,16 @@
 {{ define "main" }}
-	{{ partial "post-list.html"  . }}
-  {{ partial "pagination.html" . }}
+<div class="wrap list-page">
+  <header class="list-header">
+    <h1 class="list-title">{{ .Title }}</h1>
+    {{ with .Content }}<div class="list-intro">{{ . }}</div>{{ end }}
+  </header>
+  <ul class="post-list">
+    {{ range .Pages.ByDate.Reverse }}
+    <li class="post-item">
+      <a class="post-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <time class="post-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2006" }}</time>
+    </li>
+    {{ end }}
+  </ul>
+</div>
 {{ end }}

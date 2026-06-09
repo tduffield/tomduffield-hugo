@@ -1,0 +1,29 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{{- $title := .Title -}}
+{{- if .IsHome -}}{{ $title = .Site.Title }}{{- else -}}{{ $title = printf "%s — %s" .Title .Site.Title }}{{- end -}}
+<title>{{ $title }}</title>
+
+{{- $desc := .Site.Params.description -}}
+{{- with .Description }}{{ $desc = . }}{{ end -}}
+{{- if and (not .IsHome) .Summary }}{{ $desc = .Summary }}{{ end -}}
+<meta name="description" content="{{ $desc | plainify | truncate 200 }}">
+
+<link rel="canonical" href="{{ .Permalink }}">
+
+<!-- Open Graph / social -->
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $desc | plainify | truncate 200 }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="{{ "favicon.svg" | absURL }}" type="image/svg+xml">
+
+<link rel="stylesheet" href="{{ "css/fonts.css" | absURL }}">
+<link rel="stylesheet" href="{{ "css/main.css" | absURL }}">
+
+{{- with .OutputFormats.Get "rss" }}
+<link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ $.Site.Title }}">
+{{- end }}

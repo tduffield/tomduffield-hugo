@@ -1,7 +1,13 @@
 {{ define "main" }}
+<div class="wrap list-page">
+  <header class="list-header">
+    <h1 class="list-title">{{ .Title | default "Talks" }}</h1>
+    {{ with .Content }}<div class="list-intro">{{ . }}</div>{{ end }}
+  </header>
   <div class="presentations">
-  {{ range sort .Site.Data.presentations "date" "desc" }}
-    {{ partial "presentation.html" . }}
-  {{ end }}
+    {{ range sort hugo.Data.presentations "date" "desc" }}
+      {{ partial "presentation.html" . }}
+    {{ end }}
   </div>
+</div>
 {{ end }}

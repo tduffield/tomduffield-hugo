@@ -1,0 +1,51 @@
+---
+# "What I've built" - curated portfolio entries, newest first.
+# Voice: plain, concrete, low-ego. Lead with what it did and why it mattered.
+# Public-safe: no PHI/HIPAA claims, no phone/email, no unverified links.
+projects:
+  - name: Trailhead
+    where: Open source
+    period: 2024 - present
+    role: Author
+    blurb: >
+      I was building a whole product solo and my AI tooling kept getting in the
+      way, so I built my own. lore hands Claude Code the right context for each
+      task; forge orchestrates subagents across planning, building, and review;
+      camp spins up a full dev environment per git worktree - backend, web app,
+      and iOS simulator wired together - so I could run dozens of features at once.
+      It's what let me ship solo, and I'm open-sourcing it for anyone stuck
+      fighting the same fight.
+    stack: [Claude Code, MCP, Python, git worktrees]
+    coming_soon: true
+    link: ""
+
+  - name: Penny
+    where: Zenith Health
+    period: 2024 - 2026
+    role: Founding engineer
+    blurb: >
+      Pregnancy is full of questions and short on answers you can trust. Penny
+      took one, researched the evidence, and handed back a cited summary in plain
+      language. I built it from the ground up - a streaming LLM pipeline on OpenAI
+      models - and ran it in production solo for 16 months: the Phoenix/Elixir
+      backend, the LiveView web app, the AWS infrastructure, the mobile pipeline,
+      and the observability under all of it. It answered 15,000+ questions for
+      5,200+ people and grew its monthly users 15x in the first year.
+    stack: [Elixir, Phoenix LiveView, OpenAI, AWS CDK, PostHog]
+    link: ""
+
+  - name: Expeditor
+    where: Chef Software
+    period: 2017 - 2021
+    role: Release engineering technical lead
+    blurb: >
+      Expeditor started as my own tool for getting Chef's software out the door
+      without the manual slog. It turned into how the entire company shipped: a
+      release engine adopted across every repository Chef owned, run by technical
+      and non-technical teams alike to build, test, and release the whole
+      portfolio. It outlasted my time there and Chef's acquisition by Progress -
+      the .expeditor directories still drive automation across chef/chef,
+      chef/automate, chef/inspec, and the rest.
+    stack: [Ruby, Buildkite, GitOps, Kubernetes]
+    link: "https://www.youtube.com/watch?v=RMhGifmB0BU"
+    link_label: "Watch the ChefConf talk →"

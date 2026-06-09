@@ -1,9 +1,69 @@
 {{ define "main" }}
-  {{ range sort .Site.Data.presentations "date" "desc" | first 1 }}
-    {{ partial "presentation.html" . }}
-  {{ end }}
-  
-  {{ partial "post-list.html"  . }}
-  {{ partial "pagination.html" . }}
-  {{ partial "about.html" . }}
+
+<section class="hero">
+  <div class="wrap">
+    <p class="hero-eyebrow">
+      {{ with .Site.Params.role }}<span>{{ . }}</span>{{ end }}
+      {{ with .Site.Params.location }}<span class="dot">·</span><span>{{ . }}</span>{{ end }}
+    </p>
+    <h1 class="hero-name">{{ .Site.Params.name }}</h1>
+    {{ with .Site.Params.tagline }}<p class="hero-tagline">{{ . | safeHTML }}</p>{{ end }}
+    {{ with .Site.Params.intro }}<p class="hero-intro">{{ . }}</p>{{ end }}
+    <p class="hero-actions">
+      {{ with .Site.Params.social.github }}<a class="btn" href="{{ . }}" rel="me noopener">GitHub</a>{{ end }}
+      {{ with .Site.Params.social.linkedin }}<a class="btn" href="{{ . }}" rel="me noopener">LinkedIn</a>{{ end }}
+      {{ with .Site.Params.email }}<a class="btn" href="mailto:{{ . }}">Email</a>{{ end }}
+      {{ with .Site.Params.resumeURL }}<a class="btn btn-accent" href="{{ . | absURL }}">Résumé</a>{{ end }}
+      {{ with .Site.Params.status }}<span class="status-pill"><span class="status-dot"></span>{{ . }}</span>{{ end }}
+    </p>
+  </div>
+</section>
+
+<section id="built" class="section">
+  <div class="wrap">
+    <h2 class="section-title"><span class="section-num">01</span>What I've built</h2>
+    <div class="projects">
+      {{ range hugo.Data.projects.projects }}
+        {{ partial "project.html" . }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{ $posts := where .Site.RegularPages "Section" "posts" }}
+{{ with $posts }}
+<section id="writing" class="section section-alt">
+  <div class="wrap">
+    <h2 class="section-title"><span class="section-num">02</span>Writing</h2>
+    <ul class="post-list">
+      {{ range first 4 . }}
+      <li class="post-item">
+        <a class="post-link" href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <time class="post-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2006" }}</time>
+      </li>
+      {{ end }}
+    </ul>
+    <p class="section-more"><a href="{{ "/posts/" | absURL }}">All writing →</a></p>
+  </div>
+</section>
+{{ end }}
+
+{{ with hugo.Data.presentations }}
+<section id="talks" class="section">
+  <div class="wrap">
+    <h2 class="section-title"><span class="section-num">03</span>Talks</h2>
+    <ul class="post-list">
+      {{ range first 4 (sort . "date" "desc") }}
+      <li class="post-item">
+        {{ if .video }}<a class="post-link" href="{{ .video }}" rel="noopener">{{ .title }}</a>
+        {{ else }}<span class="post-link">{{ .title }}</span>{{ end }}
+        <span class="post-date">{{ .location }}{{ with .date }} · {{ dateFormat "2006" . }}{{ end }}</span>
+      </li>
+      {{ end }}
+    </ul>
+    <p class="section-more"><a href="{{ "/presentations/" | absURL }}">All talks →</a></p>
+  </div>
+</section>
+{{ end }}
+
 {{ end }}

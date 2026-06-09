@@ -1,0 +1,18 @@
+<article class="project">
+  <div class="project-head">
+    <h3 class="project-name">
+      {{ .name }}
+      {{ if .coming_soon }}<span class="badge">coming soon</span>{{ end }}
+    </h3>
+    <p class="project-meta">
+      {{ with .role }}{{ . }}{{ end }}{{ with .where }} · {{ . }}{{ end }}{{ with .period }} · {{ . }}{{ end }}
+    </p>
+  </div>
+  <p class="project-blurb">{{ .blurb }}</p>
+  {{ with .stack }}
+  <ul class="project-stack">
+    {{ range . }}<li>{{ . }}</li>{{ end }}
+  </ul>
+  {{ end }}
+  {{ if .link }}<p class="project-link"><a href="{{ .link }}" rel="noopener">{{ .link_label | default "Learn more →" }}</a></p>{{ end }}
+</article>

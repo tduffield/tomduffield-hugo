@@ -1,14 +1,25 @@
-<div class="presentation">
-  <div class="presentation-screenshot">
-    <img src="{{ printf "images/presentations/%s.png" .identifier | absURL }}"/>
-  </div>
+{{- $id := .identifier -}}
+{{- $hasPdf := os.FileExists (printf "static/files/presentations/%s.pdf" $id) -}}
+{{- $hasPng := os.FileExists (printf "static/images/presentations/%s.png" $id) -}}
+{{- $primary := "" -}}
+{{- if $hasPdf }}{{ $primary = printf "files/presentations/%s.pdf" $id | absURL }}{{ else }}{{ with .video }}{{ $primary = . }}{{ end }}{{ end -}}
+{{- $thumb := "" -}}
+{{- if $hasPng }}{{ $thumb = printf "images/presentations/%s.png" $id | absURL }}{{ else }}{{ with .youtube }}{{ $thumb = printf "https://img.youtube.com/vi/%s/hqdefault.jpg" . }}{{ end }}{{ end -}}
+<article class="presentation">
+  {{- with $thumb }}
+  <a class="presentation-thumb" href="{{ $primary }}" target="_blank" rel="noopener" aria-label="{{ $.title }}">
+    <img src="{{ . }}" alt="{{ $.title }} slide" loading="lazy">
+  </a>
+  {{- end }}
   <div class="presentation-details">
-    <h1 class="presentation-title"><a href="{{ printf "files/presentations/%s.pdf" .identifier | absURL }}" target="_blank">{{ .title }}</a></h1>
+    <h2 class="presentation-title">
+      {{ if $primary }}<a href="{{ $primary }}" target="_blank" rel="noopener">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}
+    </h2>
+    <p class="presentation-meta">
+      {{- with .date }}{{ dateFormat "January 2006" . }}{{ end -}}
+      {{- with .location }} · {{ . }}{{ end -}}
+      {{- with .video }} · <a href="{{ . }}" target="_blank" rel="noopener">Recording</a>{{ end -}}
+    </p>
     <p class="presentation-description">{{ .description | markdownify }}</p>
-    <ul class="presentation-metadata">
-      {{ with .date }}<li class="presentation-date"><i class="fa fa-calendar-o"></i> {{ dateFormat "January, 2 2006" . }}</li>{{ end }}
-      {{ with .location }}<li class="presentation-location"><i class="fa fa-map-marker"></i> {{ . }}</li>{{ end }}
-      {{ with .video }}<li class="presentation-video"><i class="fa fa-video-camera"></i> <a href="{{ . }}" target="_blank">Recording</a></li>{{ end }}
-    </ul>
   </div>
-</div>
+</article>
