@@ -1,9 +1,10 @@
-# Deploy config. Pins Hugo so the build is deterministic and supports the
-# newer template/config features used here (hugo.Data needs >= 0.156,
-# the `locale` config key needs >= 0.158).
+# Deploy config. Pins a stable Hugo so the build is deterministic and supports
+# the newer features used here (hugo.Data needs >= 0.156, the `locale` config
+# key needs >= 0.158). Avoid pinning bleeding-edge releases Netlify can't install
+# yet (0.163.0 was a day old and failed to install).
 [build]
   publish = "public"
   command = "hugo --gc --minify"
 
 [build.environment]
-  HUGO_VERSION = "0.163.0"
+  HUGO_VERSION = "0.160.0"
