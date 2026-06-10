@@ -27,22 +27,24 @@ enableRobotsTXT = true
   name = "Tom Duffield"
   # Monogram shown as the nav logo mark (keeps the name out of the nav twice).
   monogram = "TD"
-  # Mono eyebrow line above the name in the hero.
-  role = "Software engineer & builder"
+  # Mono eyebrow above the name: the fast facts a recruiter skims for.
+  role = "Staff / founding engineer"
+  experience = "15 years"
+  focus = "full-stack & AI"
   # Availability pill in the hero. Empty string hides it (clear it once you land).
   status = "Available for new work"
   # One-line identity, shown under the name in the hero.
   tagline = 'I build software for <span class="tagline-em">people</span>.'
   # Short hero blurb, in Tom's voice. Plain, concrete, no buzzwords.
   # Availability is carried by the status pill, so the intro stays about the work.
-  intro = "I have a habit of finding whatever's slowing everyone down and building a way out of it - then handing it over to whoever else is stuck. Most of what I've made started as a selfish fix for my own bad day, before it turned into everyone's."
+  intro = "Once I'm convinced something should exist, I don't stop until it does. It usually starts as something just for me, then grows into something others can use too."
   location = "Minneapolis, MN"
   # A small, honest sign-off in the footer. Encapsulates the off-screen builder.
   craftNote = "Off the keyboard, I build things out of wood."
   # Public contact. Drop a curated PDF in static/files/ and point resumeURL at it
   # to surface a Resume link in the hero; leave empty to hide it.
   email = "tom.duffield@gmail.com"
-  resumeURL = ""
+  resumeURL = "files/tom-duffield-resume.pdf"
   description = "Tom Duffield is a software engineer and builder in Minneapolis who ships products end-to-end - from AI consumer-health to org-wide CI/CD."
 
 # Footer + hero social links. Order here is the order rendered.

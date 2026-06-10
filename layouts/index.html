@@ -4,6 +4,8 @@
   <div class="wrap">
     <p class="hero-eyebrow">
       {{ with .Site.Params.role }}<span>{{ . }}</span>{{ end }}
+      {{ with .Site.Params.experience }}<span class="dot">·</span><span>{{ . }}</span>{{ end }}
+      {{ with .Site.Params.focus }}<span class="dot">·</span><span>{{ . }}</span>{{ end }}
       {{ with .Site.Params.location }}<span class="dot">·</span><span>{{ . }}</span>{{ end }}
     </p>
     <h1 class="hero-name">{{ .Site.Params.name }}</h1>

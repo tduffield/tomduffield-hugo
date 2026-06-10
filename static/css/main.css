@@ -102,12 +102,12 @@ img { max-width: 100%; height: auto; }
   font-family: var(--font-mono);
   font-size: 0.74rem;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.13em;
   color: var(--muted);
   margin: 0 0 22px;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 9px;
   align-items: center;
 }
 .hero-eyebrow .dot { color: var(--accent); }
