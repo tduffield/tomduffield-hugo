@@ -8,13 +8,13 @@ projects:
     period: 2024 - present
     role: Author
     blurb: >
-      I was building a whole product solo and my AI tooling kept getting in the
-      way, so I built my own. lore hands Claude Code the right context for each
-      task; forge orchestrates subagents across planning, building, and review;
-      camp spins up a full dev environment per git worktree - backend, web app,
-      and iOS simulator wired together - so I could run dozens of features at once.
-      It's what let me ship solo, and I'm open-sourcing it for anyone stuck
-      fighting the same fight.
+      I was building Zenith's platform and the off-the-shelf AI tooling was causing
+      more problems than it solved, so I built my own. lore is persistent memory
+      that brings the right context to each task; forge runs the plan/build/review
+      loop with purpose-built subagents; camp spins up a full dev environment for
+      each feature across a set of related repos - backend, web app, and iOS
+      simulator wired together - so I could run dozens at once. It's how I shipped
+      it far faster than I could have otherwise - so I'm open-sourcing it now.
     stack: [Claude Code, MCP, Python, git worktrees]
     coming_soon: true
     link: ""
@@ -24,13 +24,13 @@ projects:
     period: 2024 - 2026
     role: Founding engineer
     blurb: >
-      Pregnancy is full of questions and short on answers you can trust. Penny
-      took one, researched the evidence, and handed back a cited summary in plain
-      language. I built it from the ground up - a streaming LLM pipeline on OpenAI
-      models - and ran it in production solo for 16 months: the Phoenix/Elixir
-      backend, the LiveView web app, the AWS infrastructure, the mobile pipeline,
-      and the observability under all of it. It answered 15,000+ questions for
-      5,200+ people and grew its monthly users 15x in the first year.
+      Penny is an AI evidence tool for women navigating pregnancy: you ask a
+      question, it researches the literature and answers with a cited summary in
+      plain language. Behind it: a streaming LLM pipeline on OpenAI models, a
+      Phoenix/Elixir backend, a LiveView web app, AWS infrastructure, over-the-air
+      mobile updates, and the observability under all of it. It ran in production
+      for 16 months, answered 15,000+ questions for 5,200+ people, and grew monthly
+      users about 15x in its first year.
     stack: [Elixir, Phoenix LiveView, OpenAI, AWS CDK, PostHog]
     link: ""
 
@@ -40,12 +40,12 @@ projects:
     role: Release engineering technical lead
     blurb: >
       Expeditor started as my own tool for getting Chef's software out the door
-      without the manual slog. It turned into how the entire company shipped: a
-      release engine adopted across every repository Chef owned, run by technical
-      and non-technical teams alike to build, test, and release the whole
-      portfolio. It outlasted my time there and Chef's acquisition by Progress -
-      the .expeditor directories still drive automation across chef/chef,
-      chef/automate, chef/inspec, and the rest.
+      without doing every release by hand. It became how the whole company
+      shipped - a release engine that ran in every repo Chef owned, used by
+      engineers and non-engineers to build, test, and ship the entire portfolio.
+      It outlasted me and Chef's acquisition by Progress: the .expeditor
+      directories still run automation across chef/chef, chef/automate,
+      chef/inspec, and the rest.
     stack: [Ruby, Buildkite, GitOps, Kubernetes]
     link: "https://www.youtube.com/watch?v=RMhGifmB0BU"
     link_label: "Watch the ChefConf talk →"
